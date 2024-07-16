@@ -33,10 +33,16 @@ def call1to2(calls: {(str, str): int}) -> {str: {str: int}}:
     # takes a dict argument and returns a dictionary in the form of data structure 2
     # data structure 2: dictionary's keys are CALLERS, each caller is associated with a dictionary whose keys are the callee with the value of int
     reversed_dict = {}
-    value_dict = {}
 
-    for key in calls:
-        if
+    # calls.items() displays tuple/value pair in tuple form in a list
+    # iterate through each tuple in dict_items list
+    for (caller, callee), count in calls.items():
+        # if first element of the tuple is NOT in the new dictionary...
+        if caller not in reversed_dict:
+            # initialize an empty dictionary w/ the key as caller
+            reversed_dict[caller] = {}
+        # add the callee/count to caller's dictionary
+        reversed_dict[caller][callee] = count
     print(reversed_dict)
 
 
