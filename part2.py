@@ -18,6 +18,6 @@ def question3(n1: dict, n2: dict) -> dict:
 def question4(n: list) -> list:
     return [element for lst in range(0, len(n) - 1) for element in n[lst] if element in n[lst] and element in n[lst + 1]]
 
-a = question2({'a': 1, 'b': 0, 'c': 3, 'd': 4, 'e': 4})
-b = question4([[1, 2], [3, 2], [1, 5, 3], [6, 5]])
-c = question3({'a': 1, 'b': 2}, {'a': 3, 'c': 2})
+# a = question2({'a': 1, 'b': 0, 'c': 3, 'd': 4, 'e': 4})
+# b = question4([[1, 2], [3, 2], [1, 5, 3], [6, 5]])
+# c = question3({'a': 1, 'b': 2}, {'a': 3, 'c': 2})
