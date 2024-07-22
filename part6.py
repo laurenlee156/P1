@@ -2,7 +2,6 @@ class PeekableIterator:
 
     def __init__(self, iterable):
         self.iterable = iter(iterable) # initializes the iterator with the iterable
-
     def __iter__(self): # returns the iterator object
         return self
 
@@ -15,17 +14,22 @@ class PeekableIterator:
         # create a new iterator that has next_elem and the rest of the elements
         # convert self.iterable to a list to add to [next_elem]
         new_iterator = iter([next_elem] + list(self.iterable)) # [1] + [2, 3]
-        return next_elem, new_iterator
+        return new_iterator
 
     def has_next(self):
-        try:
-            next(self.iterable)
-            return True
-        except StopIteration:
-            return False
+        next_elem = next(self.iterable)
+        new_iterator = iter([next_elem] + list(self.iterable))
+
+
 
 # a = PeekableIterator([1, 2, 3])
-# next_elem, next_iterator = a.peek()
+# print(a.has_next())
+# print(a.has_next())
+# print(a.has_next())
+# print(a.has_next())
+
+
+
 
 
 

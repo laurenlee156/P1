@@ -43,10 +43,8 @@ def call1to2(calls: {(str, str): int}) -> {str: {str: int}}:
             reversed_dict[caller] = {}
         # add the callee/count to caller's dictionary
         reversed_dict[caller][callee] = count
-    print(reversed_dict)
-
+    return reversed_dict
 
 
 
 # a = call1to2({('a', 'b'): 2, ('a', 'c'): 1, ('b', 'a'): 3, ('b', 'c'): 1, ('c', 'a'): 1, ('c', 'd'): 2})
-
