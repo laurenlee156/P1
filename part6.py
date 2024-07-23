@@ -28,6 +28,7 @@ class PeekableIterator:
             self.iterable = iter(self.original)
             return True
         except StopIteration:
+            self.iterable = iter(self.original)
             return False
 
 # a = PeekableIterator([1, 2])
@@ -36,7 +37,6 @@ class PeekableIterator:
 # print(a.__next__())
 #
 # print(a.__next__())
-
 
 
 
