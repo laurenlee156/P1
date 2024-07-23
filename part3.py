@@ -18,7 +18,7 @@ class NamespaceManager:
         #     del self.namespace[name]
 
         if self.namespace is None:
-            raise KeyError
+            raise TypeError
         elif name not in self.namespace:
             raise KeyError
         else:
@@ -30,8 +30,8 @@ class NamespaceManager:
     def execute_function(self, code):
         return exec(code, self.namespace)
 
-# a = NamespaceManager()
-# a.namespace = None
+a = NamespaceManager()
+a.namespace = None
 # print(a.namespace)
-# print(a.delete_variable('a'))
+print(a.delete_variable('a'))
 # print(a.namespace)
