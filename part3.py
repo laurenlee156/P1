@@ -29,9 +29,9 @@ class NamespaceManager:
 
     def execute_function(self, code):
         return exec(code, self.namespace)
-
-a = NamespaceManager()
-a.namespace = None
-# print(a.namespace)
-print(a.delete_variable('a'))
-# print(a.namespace)
+#
+# a = NamespaceManager()
+# a.namespace = None
+# # print(a.namespace)
+# print(a.delete_variable('a'))
+# # print(a.namespace)
