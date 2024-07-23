@@ -34,7 +34,7 @@ class PeekableIterator:
             print(new_iter)
 
             # check if there are elements left to iterate
-            if len(new_iter) > 1:
+            if len(new_iter) > 0:
                 return True
             else:
                 return False
