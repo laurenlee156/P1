@@ -6,9 +6,6 @@ class PeekableIterator:
         self.iterable = iter(iterable)
         self.original = iterable
 
-        # create a duplicate to not change the original iterator
-        #self.iterable, self.peek_iter = tee(self.iterable)
-
     def __iter__(self): # returns the iterator object
         return self
 
@@ -18,23 +15,24 @@ class PeekableIterator:
     def peek(self):
         # get the next element in the iterator
         next_elem = next(self.iterable)
-        self.iterable = iter(self.original)
+        #self.iterable = iter(self.original)
         return next_elem
 
     def has_next(self):
-        try:
-            # get the next element in the iterator
-            self.peek()
+        if len(list(self.iterable)) > 0:
             return True
-        except StopIteration:
+        else:
             return False
+
 
 
 # a = PeekableIterator([1, 2])
 # # # a.peek()
-# # print(a.has_next())
-# # print(a.has_next())
-# # print(a.has_next())
+# print(a.__next__())
+# print(a.__next__())
+#
+# print(a.__next__())
+
 
 
 
