@@ -12,7 +12,7 @@ class NamespaceManager:
             raise KeyError
 
     def delete_variable(self, name):
-        if name not in self.namespace and type(name) is None:
+        if name not in self.namespace and name == '':
             raise KeyError
         else:
             del self.namespace[name]
@@ -24,7 +24,9 @@ class NamespaceManager:
         return exec(code, self.namespace)
 
 # a = NamespaceManager()
+# #print(type(a))
 # #print(a.set_variable('a', 1))
-# #print(a.get_variable('a'))
-# print(a.delete_variable('a'))
-# print(a.list_variables())
+# # #print(a.get_variable('a'))
+# #print(a.get_variable('b'))
+# print(a.delete_variable(''))
+# # print(a.list_variables())
