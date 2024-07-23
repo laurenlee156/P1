@@ -25,7 +25,7 @@ class PeekableIterator:
         #     return False
         try:
             next_elem = next(self.iterable)
-            #self.iterable = iter(self.original)
+            self.iterable = iter(self.original)
             return True
         except StopIteration:
             self.iterable = iter(self.original)
