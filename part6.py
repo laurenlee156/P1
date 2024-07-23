@@ -1,7 +1,13 @@
+from itertools import tee
 class PeekableIterator:
 
     def __init__(self, iterable):
-        self.iterable = iter(iterable) # initializes the iterator with the iterable
+        # initializes the iterator with the iterable
+        self.iterable = iter(iterable)
+
+        # create a duplicate to not change the original iterator
+        # self.iterable, self.peek_iter = tee(self.iterable)
+
     def __iter__(self): # returns the iterator object
         return self
 
@@ -9,24 +15,52 @@ class PeekableIterator:
         return next(self.iterable)
 
     def peek(self):
-        # assign the next item in the iterable to next_elem
-        next_elem = next(self.iterable)
-        # create a new iterator that has next_elem and the rest of the elements
-        # convert self.iterable to a list to add to [next_elem]
-        new_iterator = iter([next_elem] + list(self.iterable)) # [1] + [2, 3]
-        return new_iterator
+        # get the next element in the iterator
+        next_elem = next(self.iterable) # 1, 2
+
+        # modify self.peek_iter as it does not change self.iterable
+        # new_iter = iter([next_elem] + list(self.peek_iter)) # iterable: [1] + [2, 3], [2] + [3]
+        new_iterator = iter([next_elem] + list(self.iterable))
+        return next_elem
 
     def has_next(self):
-        next_elem = next(self.iterable)
-        new_iterator = iter([next_elem] + list(self.iterable))
+        # # get the next element in the iterator
+        # next_elem = next(self.iterable)
+        # print(next_elem)
+        #
+        # # modify self.peek_iter does not change self.iterable
+        # new_iter = list(self.peek_iter) # iterable: [1] + [2, 3]
+        # print(new_iter)
+        #
+        # # check if there are elements left to iterate
+        # if len(new_iter) > 1:
+        #     return True
+        # else:
+        #     return False
+        try:
+            next(self.iterable)
+            return True
+        except StopIteration:
+            return False
+
+a = PeekableIterator([1, 2, 3])
+# a.peek()
+print(a.has_next())
+print(a.has_next())
+print(a.has_next())
+print(a.has_next())
 
 
 
-# a = PeekableIterator([1, 2, 3])
-# print(a.has_next())
-# print(a.has_next())
-# print(a.has_next())
-# print(a.has_next())
+
+
+
+
+
+
+
+
+
 
 
 
