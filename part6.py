@@ -25,18 +25,21 @@ class PeekableIterator:
         #     return False
         try:
             next_elem = next(self.iterable)
-            self.iterable = iter(self.original)
+            #self.iterable = iter(self.original)
             return True
         except StopIteration:
             self.iterable = iter(self.original)
             return False
 
 # a = PeekableIterator([1, 2])
-# # # a.peek()
-# print(a.__next__())
-# print(a.__next__())
-#
-# print(a.__next__())
+# # # # a.peek()
+# # print(a.__next__())
+# # print(a.__next__())
+# # print(a.__next__())
+# print(a.has_next())
+# print(a.has_next())
+# print(a.has_next())
+# print(a.has_next())
 
 
 
