@@ -19,14 +19,15 @@ class NamespaceManager:
                 raise KeyError
 
     def list_variables(self):
-        name_lst = list(self.namespace.keys())
+        return list(self.namespace.keys())
 
     def execute_function(self, code):
         return exec(code, self.namespace)
 
 # a = NamespaceManager()
-# a.namespace = None
-# print(a.namespace)
-# #print(a.delete_variable('a'))
-# #print(a.namespace)
-# # # print(a.namespace)
+# a.namespace = {'a': 10, 'b': 20}
+# # print(a.namespace)
+# # #print(a.delete_variable('a'))
+# # #print(a.namespace)
+# # # # print(a.namespace)
+# print(a.list_variables())
