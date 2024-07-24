@@ -1,31 +1,35 @@
 class PeekableIterator:
 
     def __init__(self, iterable):
-        # initializes the iterator with the iterable
-        # self.iterable = iter(iterable)
-        # assigns self.original as the parameter iterable
-        self.array = iterable
+        self.iterable = iter(iterable)
+        self.next = next(self.iterable)
 
     def __iter__(self): # returns the iterator object
         return self
 
     def __next__(self):
-        if not self.array:
+        curr = self.next
+        self.next = None
+        if not curr:
             raise StopIteration
-        return self.array.pop(0)
-        # return next(self.iterable)
+        else:
+            try:
+                self.next = next(self.iterable)
+            except StopIteration:
+                self.next = None
+            return curr
 
     def peek(self):
-        if self.array:
-            return self.array[0]
+        if self.next:
+            return self.next
         else:
-            raise StopIteration
+            raise StopIteration("No more elements to peek at.")
 
     def has_next(self):
-        return len(self.array) != 0
+        return bool(self.next)
 
 
-# a = PeekableIterator([1, 2])
+# a = PeekableIterator([1, 2, 3])
 # print("has next: ", a.has_next())
 # print("peek: ",a.peek())
 # print("next: ",next(a))
@@ -33,8 +37,10 @@ class PeekableIterator:
 # print("peek: ",a.peek())
 # print("next: ",next(a))
 # print("has next: ", a.has_next())
+#
 # print("peek: ",a.peek())
-
+# print("next: ",next(a))
+# print("has next: ", a.has_next())
 
 
 
