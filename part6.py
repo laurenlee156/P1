@@ -32,13 +32,13 @@ class PeekableIterator:
         # except StopIteration:
         #     #self.iterable = iter(self.original)
         #     return False
-        if len(list(self.iterable)) > 1:
+        if len(list(self.iterable)) >= 1:
             self.iterable = iter(self.original)
             return True
         else:
             return False
 #
-# a = PeekableIterator([1, 2])
+# a = PeekableIterator([1])
 # print(a.has_next())
 # print(a.has_next())
 
