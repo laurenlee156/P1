@@ -24,10 +24,3 @@ class NamespaceManager:
     def execute_function(self, code):
         return exec(code, self.namespace)
 
-# a = NamespaceManager()
-# a.namespace = {'a': 10, 'b': 20}
-# # print(a.namespace)
-# # #print(a.delete_variable('a'))
-# # #print(a.namespace)
-# # # # print(a.namespace)
-# print(a.list_variables())
