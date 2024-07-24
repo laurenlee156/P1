@@ -1,4 +1,3 @@
-from itertools import tee
 class PeekableIterator:
 
     def __init__(self, iterable):
@@ -32,15 +31,23 @@ class PeekableIterator:
         # except StopIteration:
         #     #self.iterable = iter(self.original)
         #     return False
-        if len(list(self.iterable)) >= 1:
-            self.iterable = iter(self.original)
-            return True
-        else:
+        try:
+            if len(list(self.original)) > 0:
+                return True
+            else:
+                return False
+        except StopIteration:
             return False
 #
-# a = PeekableIterator([1])
+# a = PeekableIterator([])
+# ##print(a.__next__())
 # print(a.has_next())
+# #print(a.__next__())
 # print(a.has_next())
+# #print(a.__next__())
+# print(a.has_next())
+
+
 
 
 
