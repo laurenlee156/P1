@@ -16,7 +16,7 @@ def stable_stock_matching(buyers_preferences, stocks_preferences):
                 else:
                     buyers_preferences[buyer].remove(element)
 
-    return matched_dict
+    return {value: key for key, value in matched_dict.items()}
 
 
 # c = stable_stock_matching({"A" : [1, 2, 3],
