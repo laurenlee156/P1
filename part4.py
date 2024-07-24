@@ -15,15 +15,16 @@ def stable_stock_matching(buyers_preferences, stocks_preferences):
                 else:
                     matched_dict[buyer] = element
 
-    return matched_dict
+    return {value: key for key, value in matched_dict.items()}
 
 
-# #c = stable_stock_matching({"Buyer1" : ["StockA", "StockB", "StockC"],
-#                            "Buyer2" : ["StockB", "StockA", "StockC"],
-#                            "Buyer3" : ["StockA", "StockB", "StockC"]},
-#
-#                           {"StockA": ["Buyer1", "Buyer2", "Buyer3"],
-#                            "StockB": ["Buyer2", "Buyer1", "Buyer3"],
-#                            "StockC": ["Buyer1", "Buyer2", "Buyer3"]
-#                         })
+c = stable_stock_matching({"Buyer1" : ["StockA", "StockB", "StockC"],
+                           "Buyer2" : ["StockB", "StockA", "StockC"],
+                           "Buyer3" : ["StockA", "StockB", "StockC"]},
 
+                          {"StockA": ["Buyer1", "Buyer2", "Buyer3"],
+                           "StockB": ["Buyer2", "Buyer1", "Buyer3"],
+                           "StockC": ["Buyer1", "Buyer2", "Buyer3"]
+                        })
+
+print(c)
