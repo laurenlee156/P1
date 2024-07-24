@@ -20,31 +20,17 @@ class PeekableIterator:
         return next_elem
 
     def has_next(self):
-        # try:
-        #     next_elem = next(self.iterable)
-        #     #self.iterable = iter(self.original)
-        #     print(next_elem)
-        #     #if len(list(self.iterable)) > 0:
-        #         #self.iterable = iter(self.original)
-        #     return True
-        #
-        # except StopIteration:
-        #     #self.iterable = iter(self.original)
-        #     return False
         try:
-            if len(list(self.original)) > 0:
+            if self.peek():
                 return True
-            else:
-                return False
         except StopIteration:
+            #self.iterable = iter(self.original)
             return False
-#
-# a = PeekableIterator([])
-# ##print(a.__next__())
+
+
+# a = PeekableIterator([1])
+# print(a.peek())
 # print(a.has_next())
-# #print(a.__next__())
-# print(a.has_next())
-# #print(a.__next__())
 # print(a.has_next())
 
 
