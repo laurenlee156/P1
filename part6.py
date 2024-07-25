@@ -13,11 +13,11 @@ class PeekableIterator:
         if not curr:
             raise StopIteration
         else:
-        try:
-            self.next = next(self.iterable)
-        except StopIteration:
-            self.next = None
-        return curr
+            try:
+                self.next = next(self.iterable)
+            except StopIteration:
+                self.next = None
+            return curr
 
     def peek(self):
         if self.next:
