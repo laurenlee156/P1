@@ -9,15 +9,15 @@ class PeekableIterator:
 
     def __next__(self):
         curr = self.next
-        self.next = None
-        if not curr:
-            raise StopIteration
-        else:
-            try:
-                self.next = next(self.iterable)
-            except StopIteration:
-                self.next = None
-            return curr
+        # self.next = None
+        # if not curr:
+        #     raise StopIteration
+        # else:
+        try:
+            self.next = next(self.iterable)
+        except StopIteration:
+            self.next = None
+        return curr
 
     def peek(self):
         if self.next:
